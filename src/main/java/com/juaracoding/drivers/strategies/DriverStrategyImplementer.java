@@ -8,8 +8,6 @@ public class DriverStrategyImplementer {
         switch (strategy) {
             case Constants.CHROME:
                 return new Chrome();
-//            case "firefox":
-//                return new Firefox();
             default:
                 return null;
         }

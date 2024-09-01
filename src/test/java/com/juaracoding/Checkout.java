@@ -11,7 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-public class CheckoutSteps {
+public class Checkout {
 
     private LoginPage loginPage = new LoginPage(Hooks.driver);
     private ProductPage productPage = new ProductPage(Hooks.driver);
@@ -19,58 +19,55 @@ public class CheckoutSteps {
     private CheckoutPage checkoutPage = new CheckoutPage(Hooks.driver);
 
     @Given("User has added two products to the cart")
-    public void userHasAddedTwoProductsToTheCart() {
+    public void user_has_added_two_products_to_the_cart() {
         Hooks.driver.get("https://www.saucedemo.com/");
         loginPage.enterUsername("standard_user");
-        delay(1);
+        delay(3);
         loginPage.enterPassword("secret_sauce");
-        delay(2);
+        delay(3);
         loginPage.clickLoginButton();
-        productPage.addBackpackToCart();
-        delay(1);
-        productPage.addBikeLightToCart();
-        delay(1);
+        productPage.addFleeceJacketToCart();
+        delay(3);
+        productPage.addBoltShirtToCart();
+        delay(3);
         productPage.goToCart();
     }
 
     @When("User proceeds to checkout")
-    public void user_Proceeds_To_Checkout() {
+    public void user_proceeds_to_checkout() {
         cartPage.proceedToCheckout();
     }
 
     @And("User enters valid checkout information")
-    public void user_EntersVal_id_Checkout_Information() {
-        checkoutPage.enterFirstName("Anif");
-        delay(1);
-        checkoutPage.enterLastName("Biantoro");
-        delay(2);
-        checkoutPage.enterPostalCode("15317");
-        delay(1);
+    public void user_enters_valid_checkout_information() {
+        checkoutPage.enterFirstName("Aldo");
+        delay(3);
+        checkoutPage.enterLastName("Andre");
+        delay(3);
+        checkoutPage.enterPostalCode("140664");
+        delay(3);
     }
 
     @And("User leaves the checkout information empty")
-    public void user_Leaves_The_Checkout_Information_Empty() {
-        // Saya simulasikan dengan tidak mengisi data apapun pada form checkout
+    public void user_leaves_the_checkout_information_empty() {
     }
 
     @And("User clicks the continue button")
-    public void user_Clicks_The_Continue_Button() {
-        delay(1);
+    public void user_clicks_the_continue_button() {
+        delay(3);
         checkoutPage.clickContinueButton();
     }
 
     @And("User should proceed to the next step in checkout")
-    public void user_Should_Proceed_To_The_Next_Step_In_Checkout() {
-        // Verifikasi bahwa pengguna melanjutkan ke tahap checkout berikutnya
-        delay(1);
+    public void user_should_proceed_to_the_next_step_in_checkout() {
+        delay(3);
         String currentUrl = Hooks.driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("checkout-step-two.html"));
     }
 
     @Then("User should see an error message on checkout page")
-    public void user_Should_See_An_Error_Message_On_Checkout_Page() {
-        // Verifikasi pesan error muncul
-       delay(1);
+    public void user_should_see_an_error_message_on_checkout_page() {
+       delay(3);
         String errorMessage = checkoutPage.getErrorMessage();
         Assert.assertTrue(errorMessage.contains("Error: First Name is required"));
     }

@@ -12,11 +12,10 @@ import org.testng.Assert;
 import org.openqa.selenium.By;
 
 
-public class ProductSteps {
+public class Product {
 
     private LoginPage loginPage = new LoginPage(Hooks.driver);
     private ProductPage productPage = new ProductPage(Hooks.driver);
-    private CartPage cartPage = new CartPage(Hooks.driver);
 
     @Given("User is on login page for product")
     public void user_Is_On_Login_Page_for_product() {
@@ -32,34 +31,34 @@ public class ProductSteps {
 
     @And("User clicks login button for product")
     public void user_Clicks_Login_Button_On_Product_Page() {
-        delay(1);
+        delay(2);
         loginPage.clickLoginButton();
     }
 
     @And("User should be redirected to the product page")
     public void user_Should_Be_Redirected_To_The_Product_Page_For_Product_Steps() {
-        delay(1);
+        delay(2);
         String currentUrl = Hooks.driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("inventory.html"));
     }
 
     @And("User adds two products to the cart")
     public void user_Adds_Two_Products_To_The_Cart() {
-        delay(1);
-        productPage.addBackpackToCart();
-        delay(1);
-        productPage.addBikeLightToCart();
+        delay(2);
+        productPage.addFleeceJacketToCart();
+        delay(2);
+        productPage.addBoltShirtToCart();
     }
 
     @And("User goes to the cart")
     public void user_Goes_To_The_Cart() {
-        delay(1);
+        delay(2);
         productPage.goToCart();
     }
 
     @Then("User should see two products in the cart")
     public void user_Should_See_Two_Products_In_The_Cart() {
-       delay(1);
+       delay(2);
         String cartItemCount = Hooks.driver.findElement(By.className("shopping_cart_badge")).getText();
         Assert.assertEquals("2", cartItemCount);
     }

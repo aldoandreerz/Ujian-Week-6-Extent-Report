@@ -3,7 +3,7 @@ Feature: Login functionality on SauceDemo
   Scenario: Successful login with valid credentials
     Given User is on login page for login
     When User enters valid username and password for login
-    And User clicks login button for login
+    And User clicks login button on login page
     Then User should be redirected to the product page
 
   Scenario: Unsuccessful login with invalid username

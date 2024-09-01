@@ -12,7 +12,7 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\QA\\chromedriver-win32\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();

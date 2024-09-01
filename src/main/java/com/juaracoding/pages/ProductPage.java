@@ -13,21 +13,21 @@ public class ProductPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
-    private WebElement addToCartBackpack;
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-fleece-jacket']")
+    private WebElement addToCartFleeceJacket;
 
-    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-bike-light']")
-    private WebElement addToCartBikeLight;
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-bolt-t-shirt']")
+    private WebElement addToCartBoltShirt;
 
     @FindBy(xpath = "//a[@class='shopping_cart_link']")
     private WebElement cartLink;
 
-    public void addBackpackToCart() {
-        addToCartBackpack.click();
+    public void addFleeceJacketToCart() {
+        addToCartFleeceJacket.click();
     }
 
-    public void addBikeLightToCart() {
-        addToCartBikeLight.click();
+    public void addBoltShirtToCart() {
+        addToCartBoltShirt.click();
     }
 
     public void goToCart() {
