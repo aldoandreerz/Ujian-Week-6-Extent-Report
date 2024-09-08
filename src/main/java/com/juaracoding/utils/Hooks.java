@@ -23,5 +23,6 @@ public class Hooks {
         if (driver != null) {
             driver.quit();
         }
+        ExtentReportManager.flushReports();
     }
 }
